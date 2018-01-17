@@ -1,0 +1,2 @@
+# YouxinStore
+基于SSM搭建一个使用Dubbo做服务治理的分布式商城系统YouxinStore(优信商城)
