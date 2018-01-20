@@ -6,4 +6,56 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>youxin-store-manager-dao</artifactId>
+  
+  
+  		<dependencies>
+  			<!-- pojo -->
+  			<dependency>
+  				<groupId>com.beautifulsoup.youxin</groupId>
+  				<artifactId>youxin-store-manager-pojo</artifactId>
+			    <version>0.0.1-SNAPSHOT</version>
+  			</dependency>
+  			<!-- dao -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-jdbc</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-tx</artifactId>
+			</dependency>
+  			<!-- Mybatis -->
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis-spring</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>com.github.pagehelper</groupId>
+				<artifactId>pagehelper</artifactId>
+			</dependency>
+			<!-- redis -->
+			<dependency>
+				<groupId>redis.clients</groupId>
+				<artifactId>jedis</artifactId>
+			</dependency>
+			<!-- MySql -->
+			<!-- 连接池 -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+			</dependency>
+  		</dependencies>
+  
+  
+  
+  
+  
 </project>
