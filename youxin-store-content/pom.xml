@@ -11,4 +11,28 @@
   	<module>youxin-store-content-interface</module>
   	<module>youxin-store-content-service</module>
   </modules>
+  
+   <dependencies>
+  	<dependency>
+  		<groupId>com.beautifulsoup.youxin</groupId>
+  		<artifactId>youxin-store-common</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
+  
+  <build>
+  	<plugins>
+  		<plugin>
+  			<groupId>org.apache.tomcat.maven</groupId>
+  			<artifactId>tomcat7-maven-plugin</artifactId>
+  			<configuration>
+  				<path>/</path>
+  				<port>9002</port>
+  			</configuration>
+  		</plugin>
+  	</plugins>
+  </build>
+  
+  
+  
 </project>
