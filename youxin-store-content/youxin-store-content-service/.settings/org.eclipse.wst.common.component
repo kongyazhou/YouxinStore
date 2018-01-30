@@ -7,7 +7,7 @@
         <dependent-module archiveName="youxin-store-common-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/youxin-store-common/youxin-store-common">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <property name="context-root" value="youxin-store-content-service"/>
         <property name="java-output-path" value="/youxin-store-content-service/target/classes"/>
+        <property name="context-root" value="youxin-store"/>
     </wb-module>
 </project-modules>
