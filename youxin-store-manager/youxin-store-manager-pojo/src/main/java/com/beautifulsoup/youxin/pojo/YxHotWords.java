@@ -2,18 +2,16 @@ package com.beautifulsoup.youxin.pojo;
 
 import java.util.Date;
 
-public class YxItemCat {
+public class YxHotWords {
     private Long id;
 
-    private Long parentId;
+    private String degreee;
 
     private String name;
 
-    private Integer status;
+    private String url;
 
-    private Integer sortOrder;
-
-    private Boolean isParent;
+    private Byte search;
 
     private Date createTime;
 
@@ -27,12 +25,12 @@ public class YxItemCat {
         this.id = id;
     }
 
-    public Long getParentId() {
-        return parentId;
+    public String getDegreee() {
+        return degreee;
     }
 
-    public void setParentId(Long parentId) {
-        this.parentId = parentId;
+    public void setDegreee(String degreee) {
+        this.degreee = degreee == null ? null : degreee.trim();
     }
 
     public String getName() {
@@ -43,28 +41,20 @@ public class YxItemCat {
         this.name = name == null ? null : name.trim();
     }
 
-    public Integer getStatus() {
-        return status;
+    public String getUrl() {
+        return url;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setUrl(String url) {
+        this.url = url == null ? null : url.trim();
     }
 
-    public Integer getSortOrder() {
-        return sortOrder;
+    public Byte getSearch() {
+        return search;
     }
 
-    public void setSortOrder(Integer sortOrder) {
-        this.sortOrder = sortOrder;
-    }
-
-    public Boolean getIsParent() {
-        return isParent;
-    }
-
-    public void setIsParent(Boolean isParent) {
-        this.isParent = isParent;
+    public void setSearch(Byte search) {
+        this.search = search;
     }
 
     public Date getCreateTime() {

@@ -2,7 +2,7 @@ package com.beautifulsoup.youxin.pojo;
 
 import java.util.Date;
 
-public class User {
+public class YxUser {
     private Long id;
 
     private String username;

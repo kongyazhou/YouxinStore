@@ -9,6 +9,10 @@ public class YxItem {
 
     private String sellPoint;
 
+    private String promotion;
+
+    private String specifications;
+
     private Long price;
 
     private Integer num;
@@ -18,6 +22,10 @@ public class YxItem {
     private String image;
 
     private Long cid;
+
+    private Long brand;
+
+    private Long hotId;
 
     private Byte status;
 
@@ -47,6 +55,22 @@ public class YxItem {
 
     public void setSellPoint(String sellPoint) {
         this.sellPoint = sellPoint == null ? null : sellPoint.trim();
+    }
+
+    public String getPromotion() {
+        return promotion;
+    }
+
+    public void setPromotion(String promotion) {
+        this.promotion = promotion == null ? null : promotion.trim();
+    }
+
+    public String getSpecifications() {
+        return specifications;
+    }
+
+    public void setSpecifications(String specifications) {
+        this.specifications = specifications == null ? null : specifications.trim();
     }
 
     public Long getPrice() {
@@ -87,6 +111,22 @@ public class YxItem {
 
     public void setCid(Long cid) {
         this.cid = cid;
+    }
+
+    public Long getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Long brand) {
+        this.brand = brand;
+    }
+
+    public Long getHotId() {
+        return hotId;
+    }
+
+    public void setHotId(Long hotId) {
+        this.hotId = hotId;
     }
 
     public Byte getStatus() {
