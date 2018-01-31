@@ -31,6 +31,6 @@
 	<!-- 切面 -->
 	<aop:config>
 		<aop:advisor advice-ref="txAdvice"
-			pointcut="execution(* com.beautifulsoup.youxin.service..*.*(..))" />
+			pointcut="execution(* com.beautifulsoup.youxin.content.service..*.*(..))" />
 	</aop:config>
 </beans>

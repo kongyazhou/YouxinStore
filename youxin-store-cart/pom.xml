@@ -5,12 +5,33 @@
     <artifactId>youxin-store-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>com.beautifulsoup.youxin</groupId>
   <artifactId>youxin-store-cart</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <modules>
   	<module>youxin-store-cart-interface</module>
   	<module>youxin-store-cart-service</module>
   </modules>
+  
+   
+  <dependencies>
+  	<dependency>
+  		<groupId>com.beautifulsoup.youxin</groupId>
+  		<artifactId>youxin-store-common</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
+  
+  <build>
+  	<plugins>
+  		<plugin>
+  			<groupId>org.apache.tomcat.maven</groupId>
+  			<artifactId>tomcat7-maven-plugin</artifactId>
+  			<configuration>
+  				<path>/</path>
+  				<port>9009</port>
+  			</configuration>
+  		</plugin>
+  	</plugins>
+  </build>
+  
 </project>
