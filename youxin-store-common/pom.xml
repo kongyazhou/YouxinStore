@@ -62,6 +62,6 @@
 		      <groupId>ch.qos.logback</groupId>
 		      <artifactId>logback-core</artifactId>
 		      <scope>compile</scope>
-    		</dependency>
+    		</dependency> 
   	</dependencies>
 </project>

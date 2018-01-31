@@ -17,8 +17,8 @@
 		<aopalliance.version>1.0</aopalliance.version>
 		<mybatis.version>3.4.2</mybatis.version>
 		<pagehelper.version>4.1.0</pagehelper.version>
-		<mybatis-paginator.version>1.2.17</mybatis-paginator.version>
-		<jsqlparser.version>0.9.4</jsqlparser.version>
+		<mybatis-paginator.version>1.2.2</mybatis-paginator.version>
+		<jsqlparser.version>0.9.5</jsqlparser.version>
 		<mybatis.spring.version>1.3.1</mybatis.spring.version>
 		<dubbo.version>2.5.3</dubbo.version>
 		<quartz.version>2.3.0</quartz.version>
@@ -120,7 +120,7 @@
 			    <groupId>org.springframework</groupId>
 			    <artifactId>spring-aop</artifactId>
 			    <version>${spring.version}</version>
-			</dependency>
+			</dependency> 
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-aspects</artifactId>

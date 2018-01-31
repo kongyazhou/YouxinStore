@@ -1,8 +1,9 @@
 package com.beautifulsoup.youxin.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class YxUser {
+public class YxUser implements Serializable{
     private Long id;
 
     private String username;
