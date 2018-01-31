@@ -1,0 +1,93 @@
+var navs = [{
+	"title": "鍩烘湰鍏冪礌",
+	"icon": "fa-cubes",
+	"spread": true,
+	"children": [{
+		"title": "鎸夐挳",
+		"icon": "&#xe641;",
+		"href": "button.html"
+	}, {
+		"title": "琛ㄥ崟",
+		"icon": "&#xe63c;",
+		"href": "form.html"
+	}, {
+		"title": "琛ㄦ牸",
+		"icon": "&#xe63c;",
+		"href": "table.html"
+	}, {
+		"title": "瀵艰埅",
+		"icon": "&#xe609;",
+		"href": "nav.html"
+	}, {
+		"title": "杈呭姪鎬у厓绱�",
+		"icon": "&#xe60c;",
+		"href": "auxiliar.html"
+	}]
+}, {
+	"title": "缁勪欢",
+	"icon": "fa-cogs",
+	"spread": false,
+	"children": [{
+		"title": "BTable",
+		"icon": "fa-table",
+		"href": "btable.html"
+	}, {
+		"title": "Navbar缁勪欢",
+		"icon": "fa-navicon",
+		"href": "navbar.html"
+	}, {
+		"title": "Tab缁勪欢",
+		"icon": "&#xe62a;",
+		"href": "tab.html"
+	}, {
+		"title": "Laytpl+Laypage",
+		"icon": "&#xe628;",
+		"href": "paging.html"
+	}]
+}, {
+	"title": "绗笁鏂圭粍浠�",
+	"icon": "&#x1002;",
+	"spread": false,
+	"children": [{
+		"title": "iCheck缁勪欢",
+		"icon": "fa-check-square-o",
+		"href": "icheck.html"
+	}]
+}, {
+	"title": "鍦板潃鏈�",
+	"icon": "fa-address-book",
+	"href": "",
+	"spread": false,
+	"children": [{
+		"title": "Github",
+		"icon": "fa-github",
+		"href": "https://www.github.com/"
+	}, {
+		"title": "QQ",
+		"icon": "fa-qq",
+		"href": "http://www.qq.com/"
+	}, {
+		"title": "Fly绀惧尯",
+		"icon": "&#xe609;",
+		"href": "http://fly.layui.com/"
+	}, {
+		"title": "鏂版氮寰崥",
+		"icon": "fa-weibo",
+		"href": "http://weibo.com/"
+	}]
+}, {
+	"title": "杩欐槸涓€绾у鑸�",
+	"icon": "fa-stop-circle",
+	"href": "https://www.baidu.com",
+	"spread": false
+}, {
+	"title": "鍏朵粬",
+	"icon": "fa-stop-circle",
+	"href": "#",
+	"spread": false,
+	"children": [{
+		"title": "瀛愮獥浣撲腑鎵撳紑閫夐」鍗�",
+		"icon": "fa-github",
+		"href": "cop.html"
+	}]
+}];
