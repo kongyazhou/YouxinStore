@@ -1,12 +1,13 @@
 # YouxinStore
 基于SSM搭建一个使用Dubbo做服务治理的分布式商城系统YouxinStore(优信商城)
 
-##前端
+## 前端
 1. Html
 2. CSS
 3. JavaScript
 4. JQuery
-##后端
+
+## 后端
 1. SpringMVC
 2. Spring
 3. MyBatis
