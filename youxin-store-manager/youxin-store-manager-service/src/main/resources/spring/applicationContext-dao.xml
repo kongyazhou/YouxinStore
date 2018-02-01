@@ -43,7 +43,7 @@
 	      <property name="maxPoolPreparedStatementPerConnectionSize" value="${druid.maxPoolPreparedStatementPerConnectionSize}" />
 	   
 	      <!-- 配置监控统计拦截的filters -->
-	      <property name="filters" value="stat" /> 
+	      <property name="filters" value="stat,wall" /> 
 	</bean>
 	
 	<!-- 让spring管理sqlsessionfactory 使用mybatis和spring整合包中的 -->
