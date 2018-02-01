@@ -20,7 +20,7 @@
   		<artifactId>youxin-store-sso-interface</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
-  	<!-- spring和其他工具 -->
+  			<!-- spring和其他工具 -->
   			<!-- basic -->
 			<dependency>
 				<groupId>org.springframework</groupId>
@@ -68,6 +68,19 @@
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-jms</artifactId>
 			</dependency>
+			<!-- spring session -->
+			<dependency>
+			      <groupId>org.springframework.session</groupId>
+			      <artifactId>spring-session-data-redis</artifactId>
+			 </dependency>
+		    <dependency>
+		      <groupId>org.redisson</groupId>
+		      <artifactId>redisson</artifactId>
+		    </dependency>
+		    <dependency>
+		      <groupId>com.fasterxml.jackson.dataformat</groupId>
+		      <artifactId>jackson-dataformat-avro</artifactId>
+		    </dependency>
   			<!-- quartz任务调度 -->
 			<dependency>
 				<groupId>org.quartz-scheduler</groupId>
