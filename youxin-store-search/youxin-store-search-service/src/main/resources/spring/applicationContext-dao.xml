@@ -19,6 +19,7 @@
 		 <property name="password" value="${jdbc.password}" />
 		 <property name="driverClassName" value="${jdbc.driver}" />
 		
+		
 		  <!-- 配置初始化大小、最小、最大 -->
 	      <property name="initialSize" value="${druid.initialSize}" />
 	      <property name="minIdle" value="${druid.minIdle}" /> 
