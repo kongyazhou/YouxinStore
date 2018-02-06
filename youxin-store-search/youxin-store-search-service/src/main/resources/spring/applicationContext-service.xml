@@ -11,7 +11,7 @@
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
 	
 	<!-- aop配置 -->
-	 <aop:aspectj-autoproxy/>
+	<aop:aspectj-autoproxy/>
 	<!-- 配置包扫描器 -->
 	<context:component-scan base-package="com.beautifulsoup.youxin.search.service" annotation-config="true"/>
 	

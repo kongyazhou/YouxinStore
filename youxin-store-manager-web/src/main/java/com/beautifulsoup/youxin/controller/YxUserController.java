@@ -14,14 +14,14 @@ import com.beautifulsoup.youxin.service.YxUserService;
 @RequestMapping("/user/")
 public class YxUserController {
 	
-	@Autowired
+	/*@Autowired
 	private YxUserService yxUserService;
 	
 	@RequestMapping(value="getone",method=RequestMethod.GET)
 	@ResponseBody
 	public YxUser findUserById(@RequestParam(value="id",defaultValue="61")Long id){
 		return yxUserService.selectByPrimaryKey(id);
-	}
+	}*/
 	
 	
 }

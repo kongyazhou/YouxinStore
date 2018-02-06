@@ -16,6 +16,7 @@
 		<spring.version>4.3.10.RELEASE</spring.version>
 		<aopalliance.version>1.0</aopalliance.version>
 		<mybatis.version>3.4.2</mybatis.version>
+		<mybatis-plus.version>2.0.5</mybatis-plus.version>
 		<pagehelper.version>4.1.0</pagehelper.version>
 		<mybatis-paginator.version>1.2.2</mybatis-paginator.version>
 		<jsqlparser.version>0.9.5</jsqlparser.version>
@@ -50,7 +51,30 @@
 		<freemarker.version>2.3.23</freemarker.version>
 		<fastdfs.version>1.25</fastdfs.version>
 	</properties>
-
+	<!-- 阿里云仓库地址 -->
+	<repositories>
+		<repository>
+			<id>public</id>
+			<name>aliyun nexus</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>public</id>
+			<name>aliyun nexus</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
 	<dependencyManagement>
 		<dependencies>
 			<!-- JavaEE web依赖 -->
@@ -179,6 +203,11 @@
 				<groupId>org.mybatis</groupId>
 				<artifactId>mybatis-spring</artifactId>
 				<version>${mybatis.spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatis-plus</artifactId>	  <!-- mybatis-plus Mybatis增强辅助工具 -->
+				<version>${mybatis-plus.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.pagehelper</groupId>

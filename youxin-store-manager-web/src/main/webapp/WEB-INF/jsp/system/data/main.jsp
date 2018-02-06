@@ -18,39 +18,7 @@
 </head>
 <body class="body">
 
- <div class="layui-fluid">
-        <form id="searchForm" class="layui-form x-center" action="" >
-            <div class="layui-form-pane">
-                <div class="layui-form-item">
-                    <label class="layui-form-label">类型编码</label>
-                    <div class="layui-input-inline">
-                        <input type="text" id="type" name="type" placeholder="类型编码" class="layui-input"/>
-                    </div>
-                    <label class="layui-form-label">类型描述</label>
-                    <div class="layui-input-inline">
-                        <input type="text" id="typeDesc" name="typeDesc" placeholder="类型描述" class="layui-input"/>
-                    </div>
-                    <div class="layui-input-inline" style="width : 80px">
-                        <button class="layui-btn"  lay-submit="" lay-filter="search"><i class="layui-icon">&#xe615;</i></button>
-                    </div>
-                </div>
-            </div>
-        </form>
-        <hr>
-        <div class="layui-row">
-            <div class="layui-btn-group">
-                #shiroHasPermission('/system/data/add')
-                <button id="add" class="layui-btn layui-btn-small">添加数据</button>
-                #end
-            </div>
-            <div class="layui-btn-group">
-                #shiroHasPermission('/system/data/cache')
-                <button id="cache" class="layui-btn layui-btn-small">刷新缓存</button>
-                #end
-            </div>
-            <table id="dateTable" lay-filter="dateTable"></table>
-        </div>
-    </div>
+
     
 <script type="text/javascript">
     layui.use(['table', 'layer'], function () {
