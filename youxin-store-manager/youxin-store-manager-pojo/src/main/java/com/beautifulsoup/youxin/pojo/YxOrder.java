@@ -3,78 +3,114 @@ package com.beautifulsoup.youxin.pojo;
 import java.util.Date;
 
 public class YxOrder {
-    private String orderId;
+    private Long id;
 
-    private String payment;
+    private Long orderNumber;
 
-    private Integer paymentType;
+    private Long userId;
 
-    private String postFee;
+    private Byte payType;
 
-    private Integer status;
+    private Byte shipmentTime;
+
+    private Byte shipmentType;
+
+    private Long shipmentAmount;
+
+    private Byte invoiceType;
+
+    private String invoiceTitle;
+
+    private Byte orderStatus;
 
     private Date createTime;
 
     private Date updateTime;
 
-    private Date paymentTime;
+    private Long orderAmount;
 
-    private Date consignTime;
+    private Long payAmount;
 
-    private Date endTime;
+    private Integer buyNumber;
 
-    private Date closeTime;
-
-    private String shippingName;
-
-    private String shippingCode;
-
-    private Long userId;
-
-    private String buyerMessage;
-
-    private String buyerNick;
-
-    private Integer buyerRate;
-
-    public String getOrderId() {
-        return orderId;
+    public Long getId() {
+        return id;
     }
 
-    public void setOrderId(String orderId) {
-        this.orderId = orderId == null ? null : orderId.trim();
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getPayment() {
-        return payment;
+    public Long getOrderNumber() {
+        return orderNumber;
     }
 
-    public void setPayment(String payment) {
-        this.payment = payment == null ? null : payment.trim();
+    public void setOrderNumber(Long orderNumber) {
+        this.orderNumber = orderNumber;
     }
 
-    public Integer getPaymentType() {
-        return paymentType;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setPaymentType(Integer paymentType) {
-        this.paymentType = paymentType;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
-    public String getPostFee() {
-        return postFee;
+    public Byte getPayType() {
+        return payType;
     }
 
-    public void setPostFee(String postFee) {
-        this.postFee = postFee == null ? null : postFee.trim();
+    public void setPayType(Byte payType) {
+        this.payType = payType;
     }
 
-    public Integer getStatus() {
-        return status;
+    public Byte getShipmentTime() {
+        return shipmentTime;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setShipmentTime(Byte shipmentTime) {
+        this.shipmentTime = shipmentTime;
+    }
+
+    public Byte getShipmentType() {
+        return shipmentType;
+    }
+
+    public void setShipmentType(Byte shipmentType) {
+        this.shipmentType = shipmentType;
+    }
+
+    public Long getShipmentAmount() {
+        return shipmentAmount;
+    }
+
+    public void setShipmentAmount(Long shipmentAmount) {
+        this.shipmentAmount = shipmentAmount;
+    }
+
+    public Byte getInvoiceType() {
+        return invoiceType;
+    }
+
+    public void setInvoiceType(Byte invoiceType) {
+        this.invoiceType = invoiceType;
+    }
+
+    public String getInvoiceTitle() {
+        return invoiceTitle;
+    }
+
+    public void setInvoiceTitle(String invoiceTitle) {
+        this.invoiceTitle = invoiceTitle == null ? null : invoiceTitle.trim();
+    }
+
+    public Byte getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(Byte orderStatus) {
+        this.orderStatus = orderStatus;
     }
 
     public Date getCreateTime() {
@@ -93,83 +129,27 @@ public class YxOrder {
         this.updateTime = updateTime;
     }
 
-    public Date getPaymentTime() {
-        return paymentTime;
+    public Long getOrderAmount() {
+        return orderAmount;
     }
 
-    public void setPaymentTime(Date paymentTime) {
-        this.paymentTime = paymentTime;
+    public void setOrderAmount(Long orderAmount) {
+        this.orderAmount = orderAmount;
     }
 
-    public Date getConsignTime() {
-        return consignTime;
+    public Long getPayAmount() {
+        return payAmount;
     }
 
-    public void setConsignTime(Date consignTime) {
-        this.consignTime = consignTime;
+    public void setPayAmount(Long payAmount) {
+        this.payAmount = payAmount;
     }
 
-    public Date getEndTime() {
-        return endTime;
+    public Integer getBuyNumber() {
+        return buyNumber;
     }
 
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
-    }
-
-    public Date getCloseTime() {
-        return closeTime;
-    }
-
-    public void setCloseTime(Date closeTime) {
-        this.closeTime = closeTime;
-    }
-
-    public String getShippingName() {
-        return shippingName;
-    }
-
-    public void setShippingName(String shippingName) {
-        this.shippingName = shippingName == null ? null : shippingName.trim();
-    }
-
-    public String getShippingCode() {
-        return shippingCode;
-    }
-
-    public void setShippingCode(String shippingCode) {
-        this.shippingCode = shippingCode == null ? null : shippingCode.trim();
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public String getBuyerMessage() {
-        return buyerMessage;
-    }
-
-    public void setBuyerMessage(String buyerMessage) {
-        this.buyerMessage = buyerMessage == null ? null : buyerMessage.trim();
-    }
-
-    public String getBuyerNick() {
-        return buyerNick;
-    }
-
-    public void setBuyerNick(String buyerNick) {
-        this.buyerNick = buyerNick == null ? null : buyerNick.trim();
-    }
-
-    public Integer getBuyerRate() {
-        return buyerRate;
-    }
-
-    public void setBuyerRate(Integer buyerRate) {
-        this.buyerRate = buyerRate;
+    public void setBuyNumber(Integer buyNumber) {
+        this.buyNumber = buyNumber;
     }
 }

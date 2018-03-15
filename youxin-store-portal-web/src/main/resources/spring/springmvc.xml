@@ -9,28 +9,50 @@
         http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 	
-	<description>Spring MVC Configuration</description>
+	<description>优信商城——前台门户系统</description>
 	
+	<!-- 配置包扫描器 -->	
 	<context:component-scan base-package="com.beautifulsoup.youxin.portal.controller" />
-	<!-- 下面默认使用的是DefaultAnnotationHandlerMapping,AnnotationMethodHandlerAdapter -->
+	
+	<!-- 下面默认使用的是DefaultAnnotationHandlerMapping,AnnotationMethodHandlerAdapter,进行处理器映射器和适配器的配置,同时开启了注解配置 -->
 	<mvc:annotation-driven />
+
+	<!-- 配置视图解析器 -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+	
+	<!-- 静态资源访问配置 -->
+	<!-- <mvc:resources location="/static/" mapping="/static/**"></mvc:resources> 
 	<mvc:resources location="/css/" mapping="/css/**"></mvc:resources>
-	<mvc:resources location="/js/" mapping="/js/**"></mvc:resources>
-	<!-- <mvc:default-servlet-handler/> --><!-- 相当于定义了DefaultServletHttpRequestHandler是静态资源的请求，就将该请求转由Web应用服务器默认的Servlet处理，如果不是静态资源的请求，才由DispatcherServlet继续处理 -->
+	<mvc:resources location="/js/" mapping="/js/**"></mvc:resources> --> 
+	<mvc:default-servlet-handler/><!-- 相当于定义了DefaultServletHttpRequestHandler是静态资源的请求，就将该请求转由Web应用服务器默认的Servlet处理，如果不是静态资源的请求，才由DispatcherServlet继续处理 -->
 	
 	<!-- 使用dubbo发布服务 -->
 	<dubbo:application name="youxin-store-portal-web"/>
+	
 	<!-- 注册服务 -->
-	<dubbo:registry address="192.168.33.13:2181,192.168.33.14:2181,192.168.33.17:2181" protocol="zookeeper"></dubbo:registry>
+	<dubbo:registry address="192.168.33.21:2181,192.168.33.22:2181,192.168.33.23:2181" protocol="zookeeper"></dubbo:registry>
+	
+	
 	<!-- 配置文件上传解析器 -->
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="defaultEncoding" value="UTF-8"></property>
+		<property name="maxInMemorySize" value="40960"></property>
 		<property name="maxUploadSize" value="524288000"></property>
 	</bean>
+	
+	<!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->
+	<bean id="mappingJacksonHttpMessageConverter"
+		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+		<property name="supportedMediaTypes">
+			<list>
+				<value>text/html;charset=UTF-8</value>
+			</list>
+		</property>
+	</bean>
+	
 </beans>

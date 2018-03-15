@@ -4,19 +4,22 @@
   <resultMap id="BaseResultMap" type="com.beautifulsoup.youxin.pojo.YxItem" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="title" property="title" jdbcType="VARCHAR" />
-    <result column="sell_point" property="sellPoint" jdbcType="VARCHAR" />
     <result column="promotion" property="promotion" jdbcType="VARCHAR" />
-    <result column="specifications" property="specifications" jdbcType="VARCHAR" />
+    <result column="sell_point" property="sellPoint" jdbcType="VARCHAR" />
     <result column="price" property="price" jdbcType="BIGINT" />
-    <result column="num" property="num" jdbcType="INTEGER" />
-    <result column="barcode" property="barcode" jdbcType="VARCHAR" />
-    <result column="image" property="image" jdbcType="VARCHAR" />
-    <result column="cid" property="cid" jdbcType="BIGINT" />
-    <result column="brand" property="brand" jdbcType="BIGINT" />
-    <result column="hot_id" property="hotId" jdbcType="BIGINT" />
+    <result column="store_num" property="storeNum" jdbcType="INTEGER" />
+    <result column="images" property="images" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="brand_id" property="brandId" jdbcType="BIGINT" />
+    <result column="category_id" property="categoryId" jdbcType="BIGINT" />
+    <result column="hot_id" property="hotId" jdbcType="BIGINT" />
+    <result column="attribute_id" property="attributeId" jdbcType="BIGINT" />
+    <result column="specification_id" property="specificationId" jdbcType="BIGINT" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.beautifulsoup.youxin.pojo.YxItem" extends="BaseResultMap" >
+    <result column="description" property="description" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -77,9 +80,28 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, title, sell_point, promotion, specifications, price, num, barcode, image, cid, 
-    brand, hot_id, status, create_time, update_time
+    id, title, promotion, sell_point, price, store_num, images, status, brand_id, category_id, 
+    hot_id, attribute_id, specification_id, create_time, update_time
   </sql>
+  <sql id="Blob_Column_List" >
+    description
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.beautifulsoup.youxin.pojo.YxItemExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from yx_item
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.beautifulsoup.youxin.pojo.YxItemExample" >
     select
     <if test="distinct" >
@@ -94,9 +116,11 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
     from yx_item
     where id = #{id,jdbcType=BIGINT}
   </select>
@@ -111,16 +135,18 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.beautifulsoup.youxin.pojo.YxItem" >
-    insert into yx_item (id, title, sell_point, 
-      promotion, specifications, price, 
-      num, barcode, image, 
-      cid, brand, hot_id, status, 
-      create_time, update_time)
-    values (#{id,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{sellPoint,jdbcType=VARCHAR}, 
-      #{promotion,jdbcType=VARCHAR}, #{specifications,jdbcType=VARCHAR}, #{price,jdbcType=BIGINT}, 
-      #{num,jdbcType=INTEGER}, #{barcode,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR}, 
-      #{cid,jdbcType=BIGINT}, #{brand,jdbcType=BIGINT}, #{hotId,jdbcType=BIGINT}, #{status,jdbcType=TINYINT}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+    insert into yx_item (id, title, promotion, 
+      sell_point, price, store_num, 
+      images, status, brand_id, 
+      category_id, hot_id, attribute_id, 
+      specification_id, create_time, update_time, 
+      description)
+    values (#{id,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{promotion,jdbcType=VARCHAR}, 
+      #{sellPoint,jdbcType=VARCHAR}, #{price,jdbcType=BIGINT}, #{storeNum,jdbcType=INTEGER}, 
+      #{images,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, #{brandId,jdbcType=BIGINT}, 
+      #{categoryId,jdbcType=BIGINT}, #{hotId,jdbcType=BIGINT}, #{attributeId,jdbcType=BIGINT}, 
+      #{specificationId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{description,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.beautifulsoup.youxin.pojo.YxItem" >
     insert into yx_item
@@ -131,44 +157,47 @@
       <if test="title != null" >
         title,
       </if>
-      <if test="sellPoint != null" >
-        sell_point,
-      </if>
       <if test="promotion != null" >
         promotion,
       </if>
-      <if test="specifications != null" >
-        specifications,
+      <if test="sellPoint != null" >
+        sell_point,
       </if>
       <if test="price != null" >
         price,
       </if>
-      <if test="num != null" >
-        num,
+      <if test="storeNum != null" >
+        store_num,
       </if>
-      <if test="barcode != null" >
-        barcode,
+      <if test="images != null" >
+        images,
       </if>
-      <if test="image != null" >
-        image,
+      <if test="status != null" >
+        status,
       </if>
-      <if test="cid != null" >
-        cid,
+      <if test="brandId != null" >
+        brand_id,
       </if>
-      <if test="brand != null" >
-        brand,
+      <if test="categoryId != null" >
+        category_id,
       </if>
       <if test="hotId != null" >
         hot_id,
       </if>
-      <if test="status != null" >
-        status,
+      <if test="attributeId != null" >
+        attribute_id,
+      </if>
+      <if test="specificationId != null" >
+        specification_id,
       </if>
       <if test="createTime != null" >
         create_time,
       </if>
       <if test="updateTime != null" >
         update_time,
+      </if>
+      <if test="description != null" >
+        description,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -178,44 +207,47 @@
       <if test="title != null" >
         #{title,jdbcType=VARCHAR},
       </if>
-      <if test="sellPoint != null" >
-        #{sellPoint,jdbcType=VARCHAR},
-      </if>
       <if test="promotion != null" >
         #{promotion,jdbcType=VARCHAR},
       </if>
-      <if test="specifications != null" >
-        #{specifications,jdbcType=VARCHAR},
+      <if test="sellPoint != null" >
+        #{sellPoint,jdbcType=VARCHAR},
       </if>
       <if test="price != null" >
         #{price,jdbcType=BIGINT},
       </if>
-      <if test="num != null" >
-        #{num,jdbcType=INTEGER},
+      <if test="storeNum != null" >
+        #{storeNum,jdbcType=INTEGER},
       </if>
-      <if test="barcode != null" >
-        #{barcode,jdbcType=VARCHAR},
+      <if test="images != null" >
+        #{images,jdbcType=VARCHAR},
       </if>
-      <if test="image != null" >
-        #{image,jdbcType=VARCHAR},
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
       </if>
-      <if test="cid != null" >
-        #{cid,jdbcType=BIGINT},
+      <if test="brandId != null" >
+        #{brandId,jdbcType=BIGINT},
       </if>
-      <if test="brand != null" >
-        #{brand,jdbcType=BIGINT},
+      <if test="categoryId != null" >
+        #{categoryId,jdbcType=BIGINT},
       </if>
       <if test="hotId != null" >
         #{hotId,jdbcType=BIGINT},
       </if>
-      <if test="status != null" >
-        #{status,jdbcType=TINYINT},
+      <if test="attributeId != null" >
+        #{attributeId,jdbcType=BIGINT},
+      </if>
+      <if test="specificationId != null" >
+        #{specificationId,jdbcType=BIGINT},
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateTime != null" >
         #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
@@ -234,38 +266,38 @@
       <if test="record.title != null" >
         title = #{record.title,jdbcType=VARCHAR},
       </if>
-      <if test="record.sellPoint != null" >
-        sell_point = #{record.sellPoint,jdbcType=VARCHAR},
-      </if>
       <if test="record.promotion != null" >
         promotion = #{record.promotion,jdbcType=VARCHAR},
       </if>
-      <if test="record.specifications != null" >
-        specifications = #{record.specifications,jdbcType=VARCHAR},
+      <if test="record.sellPoint != null" >
+        sell_point = #{record.sellPoint,jdbcType=VARCHAR},
       </if>
       <if test="record.price != null" >
         price = #{record.price,jdbcType=BIGINT},
       </if>
-      <if test="record.num != null" >
-        num = #{record.num,jdbcType=INTEGER},
+      <if test="record.storeNum != null" >
+        store_num = #{record.storeNum,jdbcType=INTEGER},
       </if>
-      <if test="record.barcode != null" >
-        barcode = #{record.barcode,jdbcType=VARCHAR},
+      <if test="record.images != null" >
+        images = #{record.images,jdbcType=VARCHAR},
       </if>
-      <if test="record.image != null" >
-        image = #{record.image,jdbcType=VARCHAR},
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=TINYINT},
       </if>
-      <if test="record.cid != null" >
-        cid = #{record.cid,jdbcType=BIGINT},
+      <if test="record.brandId != null" >
+        brand_id = #{record.brandId,jdbcType=BIGINT},
       </if>
-      <if test="record.brand != null" >
-        brand = #{record.brand,jdbcType=BIGINT},
+      <if test="record.categoryId != null" >
+        category_id = #{record.categoryId,jdbcType=BIGINT},
       </if>
       <if test="record.hotId != null" >
         hot_id = #{record.hotId,jdbcType=BIGINT},
       </if>
-      <if test="record.status != null" >
-        status = #{record.status,jdbcType=TINYINT},
+      <if test="record.attributeId != null" >
+        attribute_id = #{record.attributeId,jdbcType=BIGINT},
+      </if>
+      <if test="record.specificationId != null" >
+        specification_id = #{record.specificationId,jdbcType=BIGINT},
       </if>
       <if test="record.createTime != null" >
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
@@ -273,7 +305,32 @@
       <if test="record.updateTime != null" >
         update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.description != null" >
+        description = #{record.description,jdbcType=LONGVARCHAR},
+      </if>
     </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update yx_item
+    set id = #{record.id,jdbcType=BIGINT},
+      title = #{record.title,jdbcType=VARCHAR},
+      promotion = #{record.promotion,jdbcType=VARCHAR},
+      sell_point = #{record.sellPoint,jdbcType=VARCHAR},
+      price = #{record.price,jdbcType=BIGINT},
+      store_num = #{record.storeNum,jdbcType=INTEGER},
+      images = #{record.images,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=TINYINT},
+      brand_id = #{record.brandId,jdbcType=BIGINT},
+      category_id = #{record.categoryId,jdbcType=BIGINT},
+      hot_id = #{record.hotId,jdbcType=BIGINT},
+      attribute_id = #{record.attributeId,jdbcType=BIGINT},
+      specification_id = #{record.specificationId,jdbcType=BIGINT},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      description = #{record.description,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -282,17 +339,17 @@
     update yx_item
     set id = #{record.id,jdbcType=BIGINT},
       title = #{record.title,jdbcType=VARCHAR},
-      sell_point = #{record.sellPoint,jdbcType=VARCHAR},
       promotion = #{record.promotion,jdbcType=VARCHAR},
-      specifications = #{record.specifications,jdbcType=VARCHAR},
+      sell_point = #{record.sellPoint,jdbcType=VARCHAR},
       price = #{record.price,jdbcType=BIGINT},
-      num = #{record.num,jdbcType=INTEGER},
-      barcode = #{record.barcode,jdbcType=VARCHAR},
-      image = #{record.image,jdbcType=VARCHAR},
-      cid = #{record.cid,jdbcType=BIGINT},
-      brand = #{record.brand,jdbcType=BIGINT},
-      hot_id = #{record.hotId,jdbcType=BIGINT},
+      store_num = #{record.storeNum,jdbcType=INTEGER},
+      images = #{record.images,jdbcType=VARCHAR},
       status = #{record.status,jdbcType=TINYINT},
+      brand_id = #{record.brandId,jdbcType=BIGINT},
+      category_id = #{record.categoryId,jdbcType=BIGINT},
+      hot_id = #{record.hotId,jdbcType=BIGINT},
+      attribute_id = #{record.attributeId,jdbcType=BIGINT},
+      specification_id = #{record.specificationId,jdbcType=BIGINT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
@@ -305,38 +362,38 @@
       <if test="title != null" >
         title = #{title,jdbcType=VARCHAR},
       </if>
-      <if test="sellPoint != null" >
-        sell_point = #{sellPoint,jdbcType=VARCHAR},
-      </if>
       <if test="promotion != null" >
         promotion = #{promotion,jdbcType=VARCHAR},
       </if>
-      <if test="specifications != null" >
-        specifications = #{specifications,jdbcType=VARCHAR},
+      <if test="sellPoint != null" >
+        sell_point = #{sellPoint,jdbcType=VARCHAR},
       </if>
       <if test="price != null" >
         price = #{price,jdbcType=BIGINT},
       </if>
-      <if test="num != null" >
-        num = #{num,jdbcType=INTEGER},
+      <if test="storeNum != null" >
+        store_num = #{storeNum,jdbcType=INTEGER},
       </if>
-      <if test="barcode != null" >
-        barcode = #{barcode,jdbcType=VARCHAR},
+      <if test="images != null" >
+        images = #{images,jdbcType=VARCHAR},
       </if>
-      <if test="image != null" >
-        image = #{image,jdbcType=VARCHAR},
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
       </if>
-      <if test="cid != null" >
-        cid = #{cid,jdbcType=BIGINT},
+      <if test="brandId != null" >
+        brand_id = #{brandId,jdbcType=BIGINT},
       </if>
-      <if test="brand != null" >
-        brand = #{brand,jdbcType=BIGINT},
+      <if test="categoryId != null" >
+        category_id = #{categoryId,jdbcType=BIGINT},
       </if>
       <if test="hotId != null" >
         hot_id = #{hotId,jdbcType=BIGINT},
       </if>
-      <if test="status != null" >
-        status = #{status,jdbcType=TINYINT},
+      <if test="attributeId != null" >
+        attribute_id = #{attributeId,jdbcType=BIGINT},
+      </if>
+      <if test="specificationId != null" >
+        specification_id = #{specificationId,jdbcType=BIGINT},
       </if>
       <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -344,23 +401,45 @@
       <if test="updateTime != null" >
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=LONGVARCHAR},
+      </if>
     </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.beautifulsoup.youxin.pojo.YxItem" >
+    update yx_item
+    set title = #{title,jdbcType=VARCHAR},
+      promotion = #{promotion,jdbcType=VARCHAR},
+      sell_point = #{sellPoint,jdbcType=VARCHAR},
+      price = #{price,jdbcType=BIGINT},
+      store_num = #{storeNum,jdbcType=INTEGER},
+      images = #{images,jdbcType=VARCHAR},
+      status = #{status,jdbcType=TINYINT},
+      brand_id = #{brandId,jdbcType=BIGINT},
+      category_id = #{categoryId,jdbcType=BIGINT},
+      hot_id = #{hotId,jdbcType=BIGINT},
+      attribute_id = #{attributeId,jdbcType=BIGINT},
+      specification_id = #{specificationId,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      description = #{description,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.beautifulsoup.youxin.pojo.YxItem" >
     update yx_item
     set title = #{title,jdbcType=VARCHAR},
-      sell_point = #{sellPoint,jdbcType=VARCHAR},
       promotion = #{promotion,jdbcType=VARCHAR},
-      specifications = #{specifications,jdbcType=VARCHAR},
+      sell_point = #{sellPoint,jdbcType=VARCHAR},
       price = #{price,jdbcType=BIGINT},
-      num = #{num,jdbcType=INTEGER},
-      barcode = #{barcode,jdbcType=VARCHAR},
-      image = #{image,jdbcType=VARCHAR},
-      cid = #{cid,jdbcType=BIGINT},
-      brand = #{brand,jdbcType=BIGINT},
-      hot_id = #{hotId,jdbcType=BIGINT},
+      store_num = #{storeNum,jdbcType=INTEGER},
+      images = #{images,jdbcType=VARCHAR},
       status = #{status,jdbcType=TINYINT},
+      brand_id = #{brandId,jdbcType=BIGINT},
+      category_id = #{categoryId,jdbcType=BIGINT},
+      hot_id = #{hotId,jdbcType=BIGINT},
+      attribute_id = #{attributeId,jdbcType=BIGINT},
+      specification_id = #{specificationId,jdbcType=BIGINT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}

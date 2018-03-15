@@ -16,15 +16,21 @@ public interface YxItemMapper {
 
     int insertSelective(YxItem record);
 
+    List<YxItem> selectByExampleWithBLOBs(YxItemExample example);
+
     List<YxItem> selectByExample(YxItemExample example);
 
     YxItem selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") YxItem record, @Param("example") YxItemExample example);
 
+    int updateByExampleWithBLOBs(@Param("record") YxItem record, @Param("example") YxItemExample example);
+
     int updateByExample(@Param("record") YxItem record, @Param("example") YxItemExample example);
 
     int updateByPrimaryKeySelective(YxItem record);
+
+    int updateByPrimaryKeyWithBLOBs(YxItem record);
 
     int updateByPrimaryKey(YxItem record);
 }

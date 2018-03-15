@@ -1,22 +1,53 @@
 package com.beautifulsoup.youxin.pojo;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class YxUser implements Serializable{
+public class YxUser {
     private Long id;
 
-    private String username;
+    private Long userNumber;
 
-    private String password;
+    private String userName;
 
-    private String phone;
+    private String loginPassword;
+
+    private String salt;
+
+    private String realName;
+
+    private Boolean sex;
+
+    private Byte age;
+
+    private String picImg;
+
+    private Boolean status;
+
+    private Boolean emailIsActive;
 
     private String email;
 
-    private Date createTime;
+    private String telephone;
+
+    private Date lastLoginTime;
+
+    private String lastLoginIp;
+
+    private Long loginNumber;
+
+    private Date regeistTime;
+
+    private String createBy;
 
     private Date updateTime;
+
+    private String updateBy;
+
+    private Long amount;
+
+    private Long rankId;
+
+    private Integer score;
 
     public Long getId() {
         return id;
@@ -26,28 +57,84 @@ public class YxUser implements Serializable{
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public Long getUserNumber() {
+        return userNumber;
     }
 
-    public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
+    public void setUserNumber(Long userNumber) {
+        this.userNumber = userNumber;
     }
 
-    public String getPassword() {
-        return password;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
+    public void setUserName(String userName) {
+        this.userName = userName == null ? null : userName.trim();
     }
 
-    public String getPhone() {
-        return phone;
+    public String getLoginPassword() {
+        return loginPassword;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
+    public void setLoginPassword(String loginPassword) {
+        this.loginPassword = loginPassword == null ? null : loginPassword.trim();
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt == null ? null : salt.trim();
+    }
+
+    public String getRealName() {
+        return realName;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName == null ? null : realName.trim();
+    }
+
+    public Boolean getSex() {
+        return sex;
+    }
+
+    public void setSex(Boolean sex) {
+        this.sex = sex;
+    }
+
+    public Byte getAge() {
+        return age;
+    }
+
+    public void setAge(Byte age) {
+        this.age = age;
+    }
+
+    public String getPicImg() {
+        return picImg;
+    }
+
+    public void setPicImg(String picImg) {
+        this.picImg = picImg == null ? null : picImg.trim();
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
+    public Boolean getEmailIsActive() {
+        return emailIsActive;
+    }
+
+    public void setEmailIsActive(Boolean emailIsActive) {
+        this.emailIsActive = emailIsActive;
     }
 
     public String getEmail() {
@@ -58,12 +145,52 @@ public class YxUser implements Serializable{
         this.email = email == null ? null : email.trim();
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public String getTelephone() {
+        return telephone;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setTelephone(String telephone) {
+        this.telephone = telephone == null ? null : telephone.trim();
+    }
+
+    public Date getLastLoginTime() {
+        return lastLoginTime;
+    }
+
+    public void setLastLoginTime(Date lastLoginTime) {
+        this.lastLoginTime = lastLoginTime;
+    }
+
+    public String getLastLoginIp() {
+        return lastLoginIp;
+    }
+
+    public void setLastLoginIp(String lastLoginIp) {
+        this.lastLoginIp = lastLoginIp == null ? null : lastLoginIp.trim();
+    }
+
+    public Long getLoginNumber() {
+        return loginNumber;
+    }
+
+    public void setLoginNumber(Long loginNumber) {
+        this.loginNumber = loginNumber;
+    }
+
+    public Date getRegeistTime() {
+        return regeistTime;
+    }
+
+    public void setRegeistTime(Date regeistTime) {
+        this.regeistTime = regeistTime;
+    }
+
+    public String getCreateBy() {
+        return createBy;
+    }
+
+    public void setCreateBy(String createBy) {
+        this.createBy = createBy == null ? null : createBy.trim();
     }
 
     public Date getUpdateTime() {
@@ -72,5 +199,37 @@ public class YxUser implements Serializable{
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public String getUpdateBy() {
+        return updateBy;
+    }
+
+    public void setUpdateBy(String updateBy) {
+        this.updateBy = updateBy == null ? null : updateBy.trim();
+    }
+
+    public Long getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Long amount) {
+        this.amount = amount;
+    }
+
+    public Long getRankId() {
+        return rankId;
+    }
+
+    public void setRankId(Long rankId) {
+        this.rankId = rankId;
+    }
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
     }
 }

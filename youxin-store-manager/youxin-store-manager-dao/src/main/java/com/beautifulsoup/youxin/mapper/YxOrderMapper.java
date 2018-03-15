@@ -10,7 +10,7 @@ public interface YxOrderMapper {
 
     int deleteByExample(YxOrderExample example);
 
-    int deleteByPrimaryKey(String orderId);
+    int deleteByPrimaryKey(Long id);
 
     int insert(YxOrder record);
 
@@ -18,7 +18,7 @@ public interface YxOrderMapper {
 
     List<YxOrder> selectByExample(YxOrderExample example);
 
-    YxOrder selectByPrimaryKey(String orderId);
+    YxOrder selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") YxOrder record, @Param("example") YxOrderExample example);
 

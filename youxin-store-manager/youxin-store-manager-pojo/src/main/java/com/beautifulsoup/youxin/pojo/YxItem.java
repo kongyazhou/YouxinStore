@@ -7,31 +7,33 @@ public class YxItem {
 
     private String title;
 
-    private String sellPoint;
-
     private String promotion;
 
-    private String specifications;
+    private String sellPoint;
 
     private Long price;
 
-    private Integer num;
+    private Integer storeNum;
 
-    private String barcode;
+    private String images;
 
-    private String image;
+    private Byte status;
 
-    private Long cid;
+    private Long brandId;
 
-    private Long brand;
+    private Long categoryId;
 
     private Long hotId;
 
-    private Byte status;
+    private Long attributeId;
+
+    private Long specificationId;
 
     private Date createTime;
 
     private Date updateTime;
+
+    private String description;
 
     public Long getId() {
         return id;
@@ -49,14 +51,6 @@ public class YxItem {
         this.title = title == null ? null : title.trim();
     }
 
-    public String getSellPoint() {
-        return sellPoint;
-    }
-
-    public void setSellPoint(String sellPoint) {
-        this.sellPoint = sellPoint == null ? null : sellPoint.trim();
-    }
-
     public String getPromotion() {
         return promotion;
     }
@@ -65,12 +59,12 @@ public class YxItem {
         this.promotion = promotion == null ? null : promotion.trim();
     }
 
-    public String getSpecifications() {
-        return specifications;
+    public String getSellPoint() {
+        return sellPoint;
     }
 
-    public void setSpecifications(String specifications) {
-        this.specifications = specifications == null ? null : specifications.trim();
+    public void setSellPoint(String sellPoint) {
+        this.sellPoint = sellPoint == null ? null : sellPoint.trim();
     }
 
     public Long getPrice() {
@@ -81,44 +75,44 @@ public class YxItem {
         this.price = price;
     }
 
-    public Integer getNum() {
-        return num;
+    public Integer getStoreNum() {
+        return storeNum;
     }
 
-    public void setNum(Integer num) {
-        this.num = num;
+    public void setStoreNum(Integer storeNum) {
+        this.storeNum = storeNum;
     }
 
-    public String getBarcode() {
-        return barcode;
+    public String getImages() {
+        return images;
     }
 
-    public void setBarcode(String barcode) {
-        this.barcode = barcode == null ? null : barcode.trim();
+    public void setImages(String images) {
+        this.images = images == null ? null : images.trim();
     }
 
-    public String getImage() {
-        return image;
+    public Byte getStatus() {
+        return status;
     }
 
-    public void setImage(String image) {
-        this.image = image == null ? null : image.trim();
+    public void setStatus(Byte status) {
+        this.status = status;
     }
 
-    public Long getCid() {
-        return cid;
+    public Long getBrandId() {
+        return brandId;
     }
 
-    public void setCid(Long cid) {
-        this.cid = cid;
+    public void setBrandId(Long brandId) {
+        this.brandId = brandId;
     }
 
-    public Long getBrand() {
-        return brand;
+    public Long getCategoryId() {
+        return categoryId;
     }
 
-    public void setBrand(Long brand) {
-        this.brand = brand;
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
     }
 
     public Long getHotId() {
@@ -129,12 +123,20 @@ public class YxItem {
         this.hotId = hotId;
     }
 
-    public Byte getStatus() {
-        return status;
+    public Long getAttributeId() {
+        return attributeId;
     }
 
-    public void setStatus(Byte status) {
-        this.status = status;
+    public void setAttributeId(Long attributeId) {
+        this.attributeId = attributeId;
+    }
+
+    public Long getSpecificationId() {
+        return specificationId;
+    }
+
+    public void setSpecificationId(Long specificationId) {
+        this.specificationId = specificationId;
     }
 
     public Date getCreateTime() {
@@ -151,5 +153,13 @@ public class YxItem {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description == null ? null : description.trim();
     }
 }
